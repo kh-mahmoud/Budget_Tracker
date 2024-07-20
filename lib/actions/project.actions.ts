@@ -94,13 +94,18 @@ export const UpdateProject = async ({ id, project }: UpdateProjectProps) => {
 export const DeleteProject = async (id: string) => {
 
     try {
-        const deletedProject = await prisma.project.delete({
-            where: { id }
-        })
+        const deleteTransaction = await prisma.transaction.deleteMany({ where: { projectId: id } })
 
-        revalidatePath("/")
+        if (deleteTransaction) {
+            const deletedProject = await prisma.project.delete({
+                where: { id }
+            })
 
-        return deletedProject
+            revalidatePath("/")
+
+            return deletedProject
+
+        }
 
     } catch (error) {
         console.log(error)
