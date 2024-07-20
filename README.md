@@ -28,4 +28,7 @@ With Budget Tracker, you can take control of your finances, make smarter decisio
 ![wallpaper2](https://github.com/user-attachments/assets/b8b54cc5-ca4e-486f-8195-bb65a8bd7844)
 
 
+ Feel free to join us using the link : https://budget-tracker-three-zeta.vercel.app  🚀
+
+
  
