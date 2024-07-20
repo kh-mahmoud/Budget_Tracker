@@ -44,7 +44,7 @@ model Project {
   groupId     String?       @db.ObjectId
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
-  transactions Transaction[] @relation(onDelete: Cascade)
+  transactions Transaction[] 
 }
 
 
