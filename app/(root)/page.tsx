@@ -27,7 +27,7 @@ const page = async ({ searchParams }: { searchParams: { q: string } }) => {
 
   const author = userId == user.clerkId
 
-  projects = projects?.filter((project) => project.title.toLowerCase().includes(searchParams.q?.toLowerCase() || ""))
+  projects = projects?.filter((project) => project.title.toLowerCase().includes(searchParams.q || ""))
 
 
 
