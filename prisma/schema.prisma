@@ -44,8 +44,9 @@ model Project {
   groupId     String?       @db.ObjectId
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
-  Transaction Transaction[]
+  transactions Transaction[] @relation(onDelete: Cascade)
 }
+
 
 model Group {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
@@ -79,7 +80,7 @@ model Transaction {
   updateAt     DateTime @updatedAt
   amount       Float
   description  String?
-  project      Project  @relation(fields: [projectId], references: [id])
+  project      Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   projectId    String   @db.ObjectId
   date         DateTime
   user         User     @relation(fields: [userId], references: [id])
