@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache"
 import { prisma } from "../prismaClient"
 import { CreateProjectProps, UpdateProjectProps } from "@/types"
+import { auth } from "@clerk/nextjs/server"
 
 
 export const CreateProject = async ({ project, orgId, userId }: CreateProjectProps) => {
