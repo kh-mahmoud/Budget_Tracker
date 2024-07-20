@@ -14,9 +14,7 @@ import { Project } from "@prisma/client";
 
 const page = async ({ searchParams }: { searchParams: { q: string } }) => {
 
-  const { userId } = auth()
-  let { orgId } = auth()
-  orgId = orgId || undefined;
+  const { userId,orgId } = auth()
 
 
   if (!userId) redirect("/sign-in")
@@ -24,7 +22,7 @@ const page = async ({ searchParams }: { searchParams: { q: string } }) => {
   const user = await getUserById()
   if (!user) redirect("/sign-in")
 
-  let projects = await GetProjects(orgId)
+  let projects = await GetProjects(user.id)
 
   const author = userId == user.clerkId
 
