@@ -8,6 +8,7 @@ import ProjectCard from "@/components/shared/ProjectCard";
 import { GetProjects } from "@/lib/actions/project.actions";
 import OrgSwitcher from "@/components/shared/OrgSwitcher";
 import { FilePlus } from "lucide-react";
+import {Project } from "@prisma/client"
 
 
 
@@ -27,7 +28,7 @@ const page = async ({ searchParams }: { searchParams: { q: string } }) => {
 
   const author = userId == user.clerkId
 
-  projects = projects?.filter((project) => project.title.toLowerCase().includes(searchParams.q || ""))
+  projects = projects?.filter((project:Project) => project.title.toLowerCase().includes(searchParams.q?.toLowerCase() || ""))
 
 
 
