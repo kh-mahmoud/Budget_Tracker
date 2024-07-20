@@ -44,16 +44,18 @@ export const CreateProject = async ({ project, orgId, userId }: CreateProjectPro
 
 
 
-export const GetProjects = async (orgId: string | undefined) => {
+export const GetProjects = async (id: string) => {
     try {
-        if (orgId != undefined) {
+        const { userId, orgId } = auth()
 
-            const projects = await prisma.project.findMany({ where: { groupId: { not: null } }, include: { group: { include: { members: true } }, creator: true }, orderBy: { updatedAt: "desc" } })
+        if (orgId) {
+
+            const projects = await prisma.project.findMany({ where: { groupId: { not: null }, OrgId: orgId }, include: { group: { include: { members: true } }, creator: true }, orderBy: { updatedAt: "desc" } })
 
             return projects
         }
 
-        const projects = await prisma.project.findMany({ where: { group: null }, include: { creator: true, group: { include: { members: true } } }, orderBy: { updatedAt: "desc" } })
+        const projects = await prisma.project.findMany({ where: { group: null, userId: id }, include: { creator: true, group: { include: { members: true } } }, orderBy: { updatedAt: "desc" } })
 
         return projects
 
@@ -64,8 +66,6 @@ export const GetProjects = async (orgId: string | undefined) => {
     finally {
         await prisma.$disconnect();
     }
-
-
 }
 
 
