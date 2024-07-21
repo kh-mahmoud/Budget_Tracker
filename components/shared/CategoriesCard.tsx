@@ -21,7 +21,7 @@ const CategoriesCard = ({ type, data, currency }: CategoriesCardProps) => {
                 {filtredData?.length === 0 && (
                     <div className="flex flex-col h-60 w-full justify-center items-center">
                         <h2>No data for the selected period</h2>
-                        <p className="text-sm text-muted-foreground">Try selecting a different period or try adding new {type === "income" ? "income" : "expense"}</p>
+                        <p className="text-sm text-center text-muted-foreground">Try selecting a different period or try adding new {type === "income" ? "income" : "expense"}</p>
                     </div>
                 )}
             </div>

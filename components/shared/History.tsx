@@ -52,7 +52,7 @@ const History = ({ projectId, currency }: { projectId: string, currency: Currenc
 
                         <div className="h-[300px] flex flex-col justify-center items-center bg-background rounded-lg border">
                             <h2>No data for the selected period</h2>
-                            <p className="text-sm text-muted-foreground">Try selecting a different period or adding new transactions</p>
+                            <p className="text-sm text-muted-foreground text-center">Try selecting a different period or adding new transactions</p>
                         </div>
                     ) : (
                         <div className="flex flex-col gap-3">

@@ -20,6 +20,7 @@ const config = {
     screens: {
       'md': '768px',
       'nav': '785px',
+      'nav_sm': '480px',
     },
     extend: {
       colors: {

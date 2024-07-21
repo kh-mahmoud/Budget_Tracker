@@ -29,29 +29,6 @@ const CategoryPicker = ({ type, onChange }: { type: 'income' | 'expense', onChan
     
     const {data:categories,isLoading} = useGetCategories(type)
 
-    // const initializeCategories = async () => {
-    //     try {
-    //         setLoading(true)
-    //         const data = await GetCategories(type)
-
-    //         if (data) {
-    //             setCategories(data)
-    //             setLoading(false)
-    //         }
-
-    //     } catch (error: any) {
-    //         throw new Error(error)
-    //         setLoading(false)
-    //     }
-
-    // }
-
-
-    // useEffect(() => {
-    //     initializeCategories()
-    // }, [])
-
-
 
     const selectedCategory = categories?.find((category) => category?.name === value)
 
@@ -68,7 +45,7 @@ const CategoryPicker = ({ type, onChange }: { type: 'income' | 'expense', onChan
                     role="combobox"
                     aria-expanded={open}
                     type="button"
-                    className="w-[200px] justify-between flex items-center"
+                    className="w-full justify-between flex items-center"
                 >
                     {selectedCategory
                         ? <CategoryRow category={selectedCategory} />

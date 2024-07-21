@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/sheet"
 import Logo from "./Logo";
 import { GenerateNavLinks } from "@/constants";
+import MobileLogo from "./MobileLogo";
 
 
 
@@ -30,14 +31,14 @@ const MobileNavbar = () => {
             <nav className="px-8 flex items-center w-full justify-between ">
                 <div className="flex h-[80px] items-center  w-full min-h-[60px] gap-x-6">
 
-                    <Sidebar>
-                        <div className={`cursor-pointer ${cn(buttonVariants({ variant: "ghost" }))}}`}>
-                            <Menu />
-                        </div>
-                    </Sidebar>
-
-                    <div className={`flex cursor-pointer flex-grow items-center justify-center`}>
+                    <div className={`flex flex-grow items-center`}>
+                        <Sidebar>
+                            <div className={`cursor-pointer ${cn(buttonVariants({ variant: "ghost" }))}}`}>
+                                <Menu />
+                            </div>
+                        </Sidebar>
                         <Logo />
+
                     </div>
 
                     <div className="flex items-center gap-x-4">
@@ -83,7 +84,6 @@ const NavItems = ({ link }: { link: { path: string, label: string } }) => {
 }
 
 
-
 const Sidebar = ({ children }: { children: JSX.Element }) => {
 
     const { id } = useParams()
@@ -97,7 +97,7 @@ const Sidebar = ({ children }: { children: JSX.Element }) => {
 
                 <SheetHeader>
                     <SheetTitle>
-                        <Logo />
+                        <MobileLogo />
                     </SheetTitle>
                 </SheetHeader>
 

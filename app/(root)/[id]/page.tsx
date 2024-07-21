@@ -32,7 +32,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
 
           <Header title={`Hello, ${user?.firstName}! 👋`} />
 
-          <div className="flex gap-3 items-center flex-wrap justify-end">
+          <div className="flex gap-3 items-center flex-wrap justify-center">
             <TransactionForm action={"income"}>
               <Button disabled={!permission} variant={"outline"} className="custom_income_btn">
                 New income 🤑

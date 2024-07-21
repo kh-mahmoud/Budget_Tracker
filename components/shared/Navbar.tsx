@@ -28,9 +28,9 @@ const Navbar = () => {
 
     return (
         <div className="hidden nav:flex border-b border-amber-500">
-            <nav className="flex container  items-center w-full justify-between ">
+            <nav className="flex container items-center w-full justify-between ">
                 <div className="flex h-[80px] items-center w-full min-h-[60px] gap-x-6">
-                    <Logo />
+                    <Logo/>
 
                     <ul className="flex gap-x-6 h-full ">
                         {

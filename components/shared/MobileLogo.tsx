@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-const Logo = () => {
+const MobileLogo = () => {
     return (
-        <Link href={"/"} className={`nav_sm:flex hidden  gap-x-2 items-center`}>
+        <Link href={"/"} className={`flex gap-x-2 items-center`}>
             <Image
                 alt="logo"
                 width={40}
@@ -19,4 +19,4 @@ const Logo = () => {
     );
 }
 
-export default Logo;
+export default MobileLogo;
