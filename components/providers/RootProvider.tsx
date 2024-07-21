@@ -3,7 +3,6 @@
 import { ThemeProvider } from "next-themes"
 import { ReactNode } from "react"
 import { QueryClientProvider, QueryClient } from "react-query"
-import { ReactQueryDevtools} from "react-query/devtools"
 
 
 function RootProvider({ children }: { children: ReactNode }) {

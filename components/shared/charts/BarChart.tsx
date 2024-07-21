@@ -19,6 +19,7 @@ const Barchart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                 barCategoryGap={5}
 
             >
+                {/*control chart color style  */}
                 <defs>
                     <linearGradient id="incomeBar" x1="0" y1="0" x2="0" y2="1">
                         <stop
@@ -48,11 +49,14 @@ const Barchart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                     </linearGradient>
                 </defs>
 
+                {/*chart grid background  */}
                 <CartesianGrid
                     strokeDasharray="5 3"
                     strokeOpacity={"0.2"}
                     vertical={false}
                 />
+
+                {/*configure the x axis values and style  */}
                 <XAxis
                     stroke="#888888"
                     fontSize={12}
@@ -62,7 +66,7 @@ const Barchart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                     dataKey={(data) => {
                         const { year, month, day } = data;
                         const date = new Date(year, month, day || 1);
-                          // Subtract 1 from month
+                        // Subtract 1 from month
                         if (timeFrame === "year") {
                             return date.toLocaleDateString("default", {
                                 month: "long",
@@ -80,6 +84,9 @@ const Barchart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                     tickLine={false}
                     axisLine={false}
                 />
+
+                {/*bar styles and key values */}
+
                 <Bar
                     dataKey={"income"}
                     label="Income"
@@ -94,6 +101,7 @@ const Barchart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                     radius={4}
                     className="cursor-pointer"
                 />
+                
                 <Tooltip
                     cursor={{ opacity: 0.1 }}
                     content={(props) => (
