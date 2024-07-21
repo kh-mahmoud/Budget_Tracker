@@ -31,7 +31,7 @@ const PeriodSelector = ({ period, setPeriod, timeFrame, setTimeFrame, projectId 
                 </Tabs>
             </SkeltonWrapper>
 
-            <div className="flex gap-3 ">
+            <div className="flex gap-3 flex-wrap ">
                 <SkeltonWrapper isLoading={isLoading}>
                     <YearSelector isLoading={isLoading} period={period} years={years} setPeriod={setPeriod} />
                 </SkeltonWrapper>
