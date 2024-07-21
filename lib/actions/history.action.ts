@@ -107,6 +107,7 @@ export const GetYearData = async (projectId: string, userId: string, orgId: stri
 
         const yearHistory = []
 
+        // list of data for each month
         for (let i of months) {
             let income = 0
             let expense = 0
@@ -163,6 +164,8 @@ export const GetMonthData = async (projectId: string, userId: string, orgId: str
 
         const monthHistory = []
         const daysInMonth = getDaysInMonth(new Date(year, month))
+
+        // list of data for each day in the month
 
         for (let i = 0; i <= daysInMonth; i++) {
             let income = 0
