@@ -45,6 +45,7 @@ const TransactionsTable = ({ from, to, projectId }: { from: Date, to: Date, proj
     const { data: transactions, isLoading } = useGetTransactions(from, to, projectId)
     const EmptyData: any[] = []
 
+//using reduce function and map to create an array of unique categories
 
     const uniqueCategories = transactions?.reduce((accu, curr) => {
         const key = `${curr.category}-${curr.categoryIcon}`
