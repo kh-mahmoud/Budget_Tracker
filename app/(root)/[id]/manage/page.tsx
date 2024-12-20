@@ -36,7 +36,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
             <div className='mx-[1rem] shadow-lg p-6 border rounded-md flex flex-col gap-5 bg-card '>
                 <Header TitleClassName='text-xl' subTitleClassName='text-sm' title='Currency' subTitle='Set your default currency for transactions' />
 
-                <CurrencyComboBox permission={permission} currency={currency} />
+                <CurrencyComboBox permission={permission} currency={currency} ownerId={project.creator.clerkId} />
             </div>
 
             <div className='flex flex-col gap-3'>

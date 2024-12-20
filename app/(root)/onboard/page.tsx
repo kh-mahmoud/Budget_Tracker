@@ -26,12 +26,6 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
      const user = await getUserById()
      if (!user) redirect("/sign-in")
 
-     const project = await GetProjectById(id)
-     if (!project) redirect("/")
-
-     const permission = user.role === "org:admin" || project.creator.id === user.id
-
-
 
 
 
@@ -59,7 +53,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
                          </CardDescription>
                     </CardHeader>
                     <CardContent>
-                         <CurrencyComboBox permission={permission} currency={user.currency} />
+                         <CurrencyComboBox permission={true} currency={user.currency} />
                     </CardContent>
 
                </Card>

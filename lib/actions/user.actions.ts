@@ -89,14 +89,24 @@ export const getUserById = async () => {
 }
 
 
-export const updateUserCurrency = async (currency: Currencies | undefined) => {
+export const updateUserCurrency = async (currency: Currencies | undefined,ownerId?:string) => {
 
     try {
         const { userId } = auth()
         if (!userId) redirect("/sign-in")
 
+        let updatedUser 
 
-        const updatedUser = await prisma.user.update({ where: { clerkId: userId }, data: { currency } })
+        if(ownerId)
+        {
+            updatedUser = await prisma.user.update({ where: { clerkId: ownerId }, data: { currency } })
+        }
+        else
+        {
+            updatedUser = await prisma.user.update({ where: { clerkId: userId }, data: { currency } })
+        }
+
+
 
         if (!updatedUser) throw new Error("User not found")
 

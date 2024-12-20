@@ -37,7 +37,7 @@ import { CheckIcon } from "lucide-react"
 
 
 
-export function CurrencyComboBox({ currency,permission }: { currency: CurrencyType,permission:boolean }) {
+export function CurrencyComboBox({ currency,permission,ownerId }: { currency: CurrencyType,permission:boolean,ownerId?:string }) {
   const [open, setOpen] = useState(false)
   const isDesktop = useMediaQuery("(min-width: 768px)")
   const [selectedOption, setSelectedOption] = useState<Currency | null>(null)
@@ -60,7 +60,7 @@ export function CurrencyComboBox({ currency,permission }: { currency: CurrencyTy
 
     const selected = Currencies.find((currency) => currency.value === value) || null
     setSelectedOption(selected)
-    const updatedCurrency = await updateUserCurrency(selected?.value)
+    const updatedCurrency = await updateUserCurrency(selected?.value,ownerId)
 
     if (updatedCurrency) {
       setIsLoading(false)

@@ -42,7 +42,7 @@ const page = async ({ searchParams }: { searchParams: { q: string } }) => {
         <SearchBar />
 
         <ProjectForm userId={userId} orgId={orgId} action="create">
-          <div className={`bg-card py-3 shadow-md px-4 rounded-md cursor-pointer`}>
+          <div className={`dark:bg-[rgba(255,255,255,0.1)] dark:hover:bg-[rgba(255,255,255,0.2)] bg-card py-3 shadow-md px-4 rounded-md cursor-pointer`}>
             <FilePlus />
           </div>
         </ProjectForm>

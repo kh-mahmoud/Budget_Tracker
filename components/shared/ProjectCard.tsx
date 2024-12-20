@@ -31,8 +31,8 @@ const ProjectCard = ({ project, role, author }: { project: ProjectProps, role: s
                     </div>
                 </div>
             ) : (
+
                 //Folder content
-                
                 <Link href={`/${project.id}`} target="_blank">
                     <div className='absolute z-10 inset-0'>
                         {(role == "org:admin" || author) &&
@@ -83,7 +83,7 @@ const ProjectCard = ({ project, role, author }: { project: ProjectProps, role: s
                 fill
                 loading='lazy'
                 className={`absolute inset-0 transition-opacity ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
-                onLoadingComplete={() => setImageLoaded(true)}
+                onLoad={() => setImageLoaded(true)}
             />
             <div className='absolute bottom-0 w-full h-[158px] rounded-[18px] bg-transparent rounded-tl-none shadow-xl hover:shadow-2xl' />
 

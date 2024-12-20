@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^5.1.6",
     "@clerk/themes": "^2.1.10",
+    "@dnd-kit/sortable": "^10.0.0",
     "@emoji-mart/data": "^1.2.1",
     "@emoji-mart/react": "^1.1.1",
     "@emotion/react": "^11.11.4",
@@ -32,8 +33,10 @@
     "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
+    "@sentry/nextjs": "^8.47.0",
     "@tanstack/react-query": "^5.48.0",
     "@tanstack/react-table": "^8.19.3",
+    "budget_tracker": "file:",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",

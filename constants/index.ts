@@ -8,7 +8,6 @@ export const GenerateNavLinks = (id?: string | string[]) => {
       { label: "Dashboard", path: `/${id}` },
       { label: "Transactions", path: `/${id}/transactions` },
       { label: "Manage", path: `/${id}/manage` },
-
     ]
   }
 
