@@ -26,7 +26,7 @@ const page = () => {
 
 
 
-return (
+  return (
     <div className='flex flex-col gap-3 pb-6'>
 
       {/*Transactions header*/}
@@ -65,7 +65,7 @@ return (
       </div>
 
       <div className="container">
-          <TransactionsTable from={dateRange.from} to={dateRange.to} projectId={projectId}/>
+        <TransactionsTable from={dateRange.from} to={dateRange.to} projectId={projectId} />
       </div>
 
 

@@ -64,8 +64,11 @@ const Barchart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                     axisLine={false}
                     padding={{ left: 5, right: 5 }}
                     dataKey={(data) => {
-                        const { year, month, day } = data;
+                        let { year, month, day } = data;
+                        if (timeFrame === "year") month=month-1
+                        
                         const date = new Date(year, month, day || 1);
+
                         // Subtract 1 from month
                         if (timeFrame === "year") {
                             return date.toLocaleDateString("default", {

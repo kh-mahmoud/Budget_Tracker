@@ -45,17 +45,20 @@ const TransactionsTable = ({ from, to, projectId }: { from: Date, to: Date, proj
     const { data: transactions, isLoading } = useGetTransactions(from, to, projectId)
     const EmptyData: any[] = []
 
-//using reduce function and map to create an array of unique categories
+    //using reduce function and map to create an array of unique categories
 
-    const uniqueCategories = transactions?.reduce((accu, curr) => {
-        const key = `${curr.category}-${curr.categoryIcon}`
-        if (!accu.has(key)) {
-            accu.set(key, { value: curr.category, label: `${curr.categoryIcon} ${curr.category}` })
-        }
+    const uniqueCategories = React.useMemo(() => {
+        if (!transactions) return [];
+        const categoryMap = new Map();
+        transactions.forEach((curr) => {
+            const key = `${curr.category}-${curr.categoryIcon}`;
+            if (!categoryMap.has(key)) {
+                categoryMap.set(key, { value: curr.category, label: `${curr.categoryIcon} ${curr.category}` });
+            }
+        });
+        return Array.from(categoryMap.values());
+    }, [transactions]);
 
-        return accu
-
-    }, new Map());
 
     const uniqueCategoriesArray = uniqueCategories ? Array.from(uniqueCategories.values()) : [];
 
@@ -71,23 +74,25 @@ const TransactionsTable = ({ from, to, projectId }: { from: Date, to: Date, proj
     }
 
 
-    const table = useReactTable({
-        data: transactions || EmptyData,
-        columns,
-        getCoreRowModel: getCoreRowModel(),
-        onSortingChange: setSorting,
-        getPaginationRowModel: getPaginationRowModel(),
-        getSortedRowModel: getSortedRowModel(),
-        onColumnFiltersChange: setColumnFilters,
-        getFilteredRowModel: getFilteredRowModel(),
-        onColumnVisibilityChange: setColumnVisibility,
+    const table = useReactTable(
+        React.useMemo(() => ({
+            data: transactions || EmptyData,
+            columns,
+            getCoreRowModel: getCoreRowModel(),
+            onSortingChange: setSorting,
+            getPaginationRowModel: getPaginationRowModel(),
+            getSortedRowModel: getSortedRowModel(),
+            onColumnFiltersChange: setColumnFilters,
+            getFilteredRowModel: getFilteredRowModel(),
+            onColumnVisibilityChange: setColumnVisibility,
+            state: {
+                sorting,
+                columnFilters,
+                columnVisibility,
+            },
+        }), [transactions, sorting, columnFilters, columnVisibility])
+    );
 
-        state: {
-            sorting,
-            columnFilters,
-            columnVisibility,
-        },
-    })
 
     const handleExportClick = () => {
         const data = table.getRowModel().rows.map((row) => (

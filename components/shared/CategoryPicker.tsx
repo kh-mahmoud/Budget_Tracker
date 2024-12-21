@@ -67,7 +67,7 @@ const CategoryPicker = ({ type, onChange }: { type: 'income' | 'expense', onChan
                                 </div>) :
                                 (categories && categories.map((category) => (
                                     <CommandItem
-                                        key={category.userId}
+                                        key={category.id}
                                         value={category.name}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)

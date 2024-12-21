@@ -29,12 +29,12 @@ const CategoriesCard = ({ type, data, currency }: CategoriesCardProps) => {
             <div>
                 <ScrollArea className="h-60 w-full ">
                     <div className="flex flex-col gap-4 p-4">
-                        {filtredData?.map((item) => {
+                        {filtredData?.map((item,index) => {
                             const amount = item?._sum.amount || 0
                             const percentage = (amount * 100) / (total || amount)
 
                             return (
-                                <div className="flex flex-col gap-2">
+                                <div key={index} className="flex flex-col gap-2">
                                     <div className="flex justify-between items-center">
                                         <div className=" flex gap-1">
                                             {item.categoryIcon} {item.category}

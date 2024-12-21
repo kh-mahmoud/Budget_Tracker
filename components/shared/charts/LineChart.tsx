@@ -35,9 +35,12 @@ const Linechart = ({ historyData, timeFrame, currency }: ChartsProps) => {
                     axisLine={false}
                     padding={{ left: 5, right: 5 }}
                     dataKey={(data) => {
-                        const { year, month, day } = data;
-                        const date = new Date(year, month, day || 1);
+                        let { year, month, day } = data;
 
+                        if (timeFrame === "year") month=month-1
+
+                        const date = new Date(year, month, day || 1);
+                         
                         if (timeFrame === "year") {
                             return date.toLocaleDateString("default", {
                                 month: "long",

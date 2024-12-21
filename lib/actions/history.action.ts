@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs/server"
 import { prisma } from "../prismaClient"
 import { Period, TimeFrame } from "@/types"
 import { ClauseBuilder } from "./clausseBuilder.action";
-import { months } from "@/constants";
+import { months, Year_months } from "@/constants";
 import { getDaysInMonth } from "date-fns";
 
 
@@ -108,7 +108,7 @@ export const GetYearData = async (projectId: string, userId: string, orgId: stri
         const yearHistory = []
 
         // list of data for each month
-        for (let i of months) {
+        for (let i of Year_months) {
             let income = 0
             let expense = 0
 

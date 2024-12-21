@@ -22,6 +22,8 @@ const History = ({ projectId, currency }: { projectId: string, currency: Currenc
 
 
     const { data: historyData, isLoading: historyLoad } = useGetHistoryData(projectId, timeFrame, period)
+
+    console.log(historyData)
      
      
     return (
