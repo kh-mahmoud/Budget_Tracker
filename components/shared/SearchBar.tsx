@@ -8,7 +8,7 @@ import useDebounce from '@/hooks/useDebouncer';
 
 const SearchBar = () => {
   const [search, setSearch] = React.useState('');
-  useDebounce(search, 300);
+  useDebounce(search, 200);
 
   return (
     <div className="w-[90%]">
