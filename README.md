@@ -1,6 +1,8 @@
 # Budget Tracker 💰📊
-
 Welcome to Budget Tracker – your tool for effortless and efficient financial management!
+
+
+![6013233](https://github.com/user-attachments/assets/36a9c9bf-1884-469c-9197-4efaeefbfcf8)
 
 Managing your finances has never been easier. With Budget Tracker, you can keep a close eye on your income and expenses, ensuring you always know where your money is going and how much you have left. The app is designed to help you make informed financial decisions and achieve your financial goals with ease.
 
